@@ -21,7 +21,7 @@ abstract class MWCPUI
     public static function enqueue_script()
     {
         $url = plugins_url('/wp-category-permalink.js', dirname(__FILE__) . '/../' );
-        wp_enqueue_script( 'wp-category-permalink.js', $url, array( 'jquery' ), '3.2.3', false );
+        wp_enqueue_script( 'wp-category-permalink.js', $url, array( 'jquery' ), '3.3.5', false );
     }
 
     public static function post_js()

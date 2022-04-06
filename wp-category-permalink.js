@@ -25,17 +25,21 @@
       this.find('.taxa-value-selector').click(function (event) {
         event.preventDefault();
         console.debug(event);
+        if ($(this).parents('.selectit').css('fontWeight') == '700') {
 
-        if ($(this).css('fontWeight') == 'bold') {
-          $('.permalink-taxa', me).val('');
-          $(this).css('fontWeight', 'normal');
+            $('.permalink-taxa', me).val('');
+            $(this).parents('.selectit').css('fontWeight', 'normal');
+
+        } else {
+
+            me.find('.selectit').css('fontWeight', '');
+            $(this).parents('.selectit').css('fontWeight', 'bold');
+            $(this).parents('.selectit').find('input').prop('checked', true);
+            var val = $(this).prev().attr('value');
+            $('.permalink-taxa', me).val(val);
+
         }
 
-        me.find('.selectit').css('fontWeight', '');
-        $(this).parents('.selectit').css('fontWeight', 'bold');
-        $(this).parents('.selectit').find('input').prop('checked', true);
-        var val = $(this).prev().attr('value');
-        $('.permalink-taxa', me).val(val);
       });
 
       var taxonomy = $(this).data('taxonomy');
