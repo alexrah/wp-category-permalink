@@ -145,6 +145,15 @@ abstract class MWCPPost
             {
                 $post_types = array();
             }
+
+	        /**
+	         * Filters the post_types enabled for permalink overrides
+	         *
+	         * @since 3.6.0
+	         *
+	         * @param array $post_types the allowed post_types
+	         */
+            $post_types = apply_filters('wp_category_permalink_post_types',$post_types);
         }
 
         return $post_types;
